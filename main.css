@@ -119,4 +119,7 @@ p {
         border-bottom: 1px solid #80808085;
 
     }
+    .container-img > img{
+        width: 350px;
+    }
   }
