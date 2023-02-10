@@ -3,7 +3,6 @@ body {
     padding: 0;
     box-sizing: border-box;
     min-height: 100vh;
-    min-width: 400px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 header {
@@ -111,6 +110,13 @@ p {
 @media (min-width: 320px ) and (max-width: 480px ) {
     #container {
         flex-direction: column;
-        width: 400px;
+        width: 350px;
+            box-shadow: 0 0 0 #fff;
+    }
+    .container-img {
+        box-shadow: 0 0 0 #fff;
+        width: 350px;
+        border-bottom: 1px solid #80808085;
+
     }
   }
