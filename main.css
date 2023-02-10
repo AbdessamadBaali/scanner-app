@@ -2,17 +2,33 @@ body {
     margin: 0; 
     padding: 0;
     box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
+    min-width: 400px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+header {
+    padding: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+
 #container {
+    width: 800px;
+    margin: auto;
     box-shadow: 1px 1px 25px #00000032;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.container-img {
+    box-shadow: 0px 1px 25px #00000032;
+    width: 400px;
+}
+.container-img > img{
+    width: 100%;
 }
 #qr-reader {
     min-width: 400px;
@@ -22,7 +38,6 @@ body {
     flex-direction: column !important;
     justify-content: center !important;
     align-items: center !important;
-    border-right: 1px solid #00000032 !important;
 }
 #qr-reader > div  >img {
     display: none !important; 
@@ -33,8 +48,13 @@ body {
 }
 #qr-reader__dashboard_section > div >a{
     cursor: pointer;
+    color: purple;
 }
-#qr-reader__dashboard_section button{
+#qr-reader__dashboard_section > div >a:hover{
+    color: blueviolet;
+}
+#qr-reader__dashboard_section button,
+#start {
     cursor: pointer;
     border: 1px solid gray ;
     box-shadow: 0px 2px 5px;
@@ -47,28 +67,50 @@ img:first{
     display : none !important;
 }
 #qr-reader__dashboard_section button:hover{
-    background-color: gainsboro;
+    box-shadow: -2px 2px 5px;
+
 }
+
+/* result  */
 #result {
-    width: 400px;
+    width: 350px;
     min-height: 350px;
     display: flex !important;
     flex-direction: column !important;
     justify-content: center !important;
     align-items: center !important;
-    padding: 1rem;
 }
 h1 {
     text-transform: uppercase;
     margin: 1rem;
+    color: green;
 }
 p {
     text-transform: capitalize;
     line-height: 25px;
     padding: 1rem;
 }
-@media screen and (max-width: 992px) {
+
+
+
+@media (min-width: 768px ) and (max-width: 992px ) {
     #container {
         flex-direction: column;
+        width: 500px;
+    }
+    .container-img {
+        box-shadow: 0px 0px 0px #fff;
+    }
+  }
+@media (min-width: 480px ) and (max-width: 768px ) {
+    #container {
+        flex-direction: column;
+        width: 500px;
+    }
+  }
+@media (min-width: 320px ) and (max-width: 480px ) {
+    #container {
+        flex-direction: column;
+        width: 400px;
     }
   }
