@@ -59,18 +59,6 @@ button:hover {
     margin-top: 20px;
 }
 
-.success {
-    color: green;
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-.error {
-    color: red;
-    font-weight: bold;
-    margin-top: 10px;
-}
-
 
 /* qr code animation  */
 .qr-container {
@@ -150,3 +138,20 @@ button:hover {
     transform: translateY(-50%) rotate(90deg);
   }
   
+/*  media query make the app look good in any screen */
+@media (min-width: 768px ) and (max-width: 992px ) {
+    #container {
+        min-width: 500px;
+    }
+  }
+@media (min-width: 480px ) and (max-width: 768px ) {
+    #container {
+        min-width: 450px;
+    }
+ 
+  }
+@media (min-width: 320px ) and (max-width: 480px ) {
+    #container {
+        min-width: 400px;
+    }
+  }
