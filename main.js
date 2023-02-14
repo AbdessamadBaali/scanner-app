@@ -1,7 +1,7 @@
 const scanner = new Html5QrcodeScanner(
     "qr-reader",
     {
-      fps: 10,
+      fps: 20,
       qrbox: 300,
     },
     /* verbose= */ false
