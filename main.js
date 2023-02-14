@@ -1,31 +1,32 @@
-const scanner = new Html5QrcodeScanner(
-    "qr-reader",
-    {
-      fps: 20,
-      qrbox: 300,
-    },
-    /* verbose= */ false
-  );
+const scanner = new Html5QrcodeScanner('qr-reader', {
+  qrbox : {
+      width: 600,
+      height: 600,
+      width: 300,
+      height: 300, 
+  },
+  fps: 20,
+})
+scanner.render(success, error);
 
-// start scanning
-const startScanning = () => {
-    const qrAnimation = document.querySelector('.qr-container');
-    qrAnimation.style.display = 'none';
-    btnStart.style.display = 'none';
-
-    const success = (result) => {
-      document.getElementById("result").innerHTML = `
-      <h2>QR Code Scanned:</h2>
-      <p>${result}</p> `;
-    };
-
-    const error = (error) => {
-      console.log(`QR Code Error: ${error}`);
-    };
-
-    scanner.render(success,error);
+function success(result) {
+  document.querySelector('#rest').innerHTML = `
+  <h1>seccess</h1>
+  <p><a href='$'>${result}</a></p>
+  `;
+  let divEl = document.createElement('div');
+  divEl.id = 'result';
+  document.querySelector('body').appendChild(divEl)
+  divEl .innerHTML = `
+  <h1>SUCCÈS</h1>
+  <p>${result}</p>  `;
+  // scanner.clear();
+  // document.querySelector('#qr-reader').remove();
 }
-// button for trigger the scanning
+function error(err) {
+  console.log(err);
+}
+const start = () => scanner.render(success, error);
 
-const btnStart = document.querySelector('#start');
-btnStart.addEventListener("click", startScanning);
+let buttonEl = document.querySelector("#start");
+buttonEl.addEventListener('onclick', start())
