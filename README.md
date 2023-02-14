@@ -50,6 +50,10 @@ That's all you need to get started with HTML5 QR Code Scanner! You can customize
 -  setMirror: Specifies whether the camera stream should be mirrored.
 
 -  setGrayscaleWeights: Sets the grayscale weights used by the scanner to determine whether a portion of the image represents a QR code.
+## Documentation
+
+[Documentation]([https://linktodocumentation](https://github.com/mebjas/html5-qrcode))
+
 
 ## Feedback
 
