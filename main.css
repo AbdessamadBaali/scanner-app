@@ -21,7 +21,6 @@ body {
     margin-left: 10px;
   }
   #container {
-    max-width: 500px;
     margin: 0 auto;
     text-align: center;
     padding: 20px;
@@ -138,20 +137,3 @@ button:hover {
     transform: translateY(-50%) rotate(90deg);
   }
   
-/*  media query make the app look good in any screen */
-@media (min-width: 768px ) and (max-width: 992px ) {
-    #container {
-        min-width: 500px;
-    }
-  }
-@media (min-width: 480px ) and (max-width: 768px ) {
-    #container {
-        min-width: 450px;
-    }
- 
-  }
-@media (min-width: 320px ) and (max-width: 480px ) {
-    #container {
-        min-width: 400px;
-    }
-  }
