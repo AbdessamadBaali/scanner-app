@@ -49,9 +49,9 @@ button:hover {
     animation: code-fade 1s ease-in-out infinite alternate;
 }
 
-#qr-reader > div  >img {
+/* #qr-reader > div  >img {
     display: none !important; 
-}
+} */
 #qr-reader video {
     width: 100%;
 }
