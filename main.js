@@ -28,5 +28,5 @@ function error(err) {
 }
 const start = () => scanner.render(success, error);
 
-let buttonEl = document.querySelector("#start");
-buttonEl.addEventListener('onclick', start())
+// let buttonEl = document.querySelector("#start");
+// buttonEl.addEventListener('onclick', start())
