@@ -12,20 +12,20 @@ const startScanning = () => {
     const qrAnimation = document.querySelector('.qr-container');
     qrAnimation.style.display = 'none';
     btnStart.style.display = 'none';
-    scanner.render(
-        (result) => {
-          document.getElementById("result").innerHTML = `
-            <h2>QR Code Scanned:</h2>
-            <p>${result}</p>
-          `;
-        },
-        (error) => {
-          console.log(`QR Code Error: ${error}`);
-        }
-      );
+
+    const success = (result) => {
+      document.getElementById("result").innerHTML = `
+      <h2>QR Code Scanned:</h2>
+      <p>${result}</p> `;
+    };
+
+    const error = (error) => {
+      console.log(`QR Code Error: ${error}`);
+    };
+
+    scanner.render(success,error);
 }
 // button for trigger the scanning
 
 const btnStart = document.querySelector('#start');
 btnStart.addEventListener("click", startScanning);
-
