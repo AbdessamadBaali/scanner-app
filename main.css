@@ -21,6 +21,7 @@ body {
     margin-left: 10px;
   }
   #container {
+    width: 550px;
     margin: 0 auto;
     text-align: center;
     padding: 20px;
@@ -52,7 +53,7 @@ button:hover {
     display: none !important; 
 }
 #qr-reader video {
-    max-width: 100%;
+    width: 100%;
 }
 #result {
     margin-top: 20px;
@@ -137,3 +138,34 @@ button:hover {
     transform: translateY(-50%) rotate(90deg);
   }
   
+/*  media query make the app look good in any screen */
+@media screen and (min-width: 768px ) and (max-width: 992px ) {
+    #container {
+        width: 550px;
+    }
+  }
+@media screen and (min-width: 480px ) and (max-width: 768px ) {
+    #container {
+        width: 100% !important;
+        box-shadow: 0 0 0;
+    }
+    #qr-reader {
+        width: 500px;
+        overflow: hidden;
+    }
+    #qr-reader video {
+        width: 400px;
+    }
+
+ 
+  }
+@media screen and (min-width: 320px ) and (max-width: 480px ) {
+    #container {
+        width: 100%;
+    }
+   #qr-reader {
+        width: 450px;
+        overflow: hidden;
+    }
+
+  }
