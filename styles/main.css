@@ -5,6 +5,9 @@ body {
     min-height: 100vh;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+:root {
+  --baseColor : #085b41;
+}
 #navbar {
     background-color: #333;
     color: #fff;
@@ -21,8 +24,8 @@ body {
     margin-left: 10px;
   }
   #container {
-    width: 550px;
-    margin: 0 auto;
+    width: 600px;
+    margin: 1rem auto;
     text-align: center;
     padding: 20px;
     background-color: #fff;
@@ -49,11 +52,14 @@ button:hover {
     animation: code-fade 1s ease-in-out infinite alternate;
 }
 
-/* #qr-reader > div  >img {
+#qr-reader > div:nth-child(1)  >img {
     display: none !important; 
-} */
+}
+#qr-reader {
+    width: 450px;
+}
 #qr-reader video {
-    width: 100%;
+    width: 100% !important;
 }
 #result {
     margin-top: 20px;
@@ -62,9 +68,9 @@ button:hover {
 
 /* qr code animation  */
 .qr-container {
-    border: solid 5px black;
-    width: 210px;
-    height: 210px;
+  border: 4px solid #333;
+    width: 250px;
+    height: 250px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -80,7 +86,7 @@ button:hover {
   .qr-container > span {
     width: 190px;
     position: absolute;
-    height: 8px;
+    height: 4px;
     background: red;
     z-index: 1;
     animation: scan 1s ease-in-out infinite alternate;
@@ -107,37 +113,36 @@ button:hover {
     }
   }
   
-  .border-masks {
-    width: 125px;
-    height: 10px;
-    position: absolute;
-    background: white;
-  }
-  
-  .border-masks:nth-child(1) {
-    top: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  
-  .border-masks:nth-child(2) {
-    bottom: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  
-  .border-masks:nth-child(3) {
-    top: 50%;
-    left: -65px;
-    transform: translateY(-50%) rotate(90deg);
-  }
-  
-  .border-masks:nth-child(4) {
-    top: 50%;
-    right: -65px;
-    transform: translateY(-50%) rotate(90deg);
-  }
-  
+.border-masks {
+  width: 125px;
+  height: 10px;
+  position: absolute;
+  background: white;
+}
+
+.border-masks:nth-child(1) {
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.border-masks:nth-child(2) {
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.border-masks:nth-child(3) {
+  top: 50%;
+  left: -65px;
+  transform: translateY(-50%) rotate(90deg);
+}
+
+.border-masks:nth-child(4) {
+  top: 50%;
+  right: -65px;
+  transform: translateY(-50%) rotate(90deg);
+}
 /*  media query make the app look good in any screen */
 @media screen and (min-width: 768px ) and (max-width: 992px ) {
     #container {
