@@ -32,8 +32,10 @@ class Controller_App {
 
                         if (isset($_POST['remember_info'])) 
                             setcookie('login_cookie',$_SESSION['login'],time()+60*60*24*30,$path = "",$domain = "",$secure = false,$httponly = false);
-
-                        $this->model_obj->includeMain();
+                        unset($_SESSION['loginErorr']);
+                        include_once "view/header.php";
+                        include_once "view/main.php";
+                        include_once "view/footer.php";
                     
                 }elseif($result_login !== 0  and $result_login !== 1  and $result_login[0]->etat === 0)  
                 {   
@@ -164,6 +166,63 @@ class Controller_App {
                 header("location: index.php?profile");
 
             }
+        } elseif(isset($_GET['update_file'])){
+
+            $id = intval($_GET['id']);
+            $query = "SELECT * from files where id_file = $id ";
+            $result = $this->model_obj->all_query($query, 'select');
+            $_SESSION['result'] = $result;
+            if($result !== 0 and $result !== 1) {
+
+                $idfile = $result[0]->id_file;
+                $name_file = $result[0]->name_file;
+                $etage = $result[0]->etage;
+                $column = $result[0]->colu_mn;
+                $type = $result[0]->TYPE;
+                $groupe = $result[0]->id_groupe;
+                $stg = $result[0]->id_stg;
+                $season = $result[0]->season;
+                include_once 'view/header.php';
+                include_once 'view/update.php';
+                include_once 'view/footer.php';
+                
+            } else {
+                include_once 'view/header.php';
+                include_once 'view/main.php';
+                include_once 'view/footer.php';
+            }
+        
+        }elseif(isset($_POST['update'])){
+
+            $idFile = $_POST['idFile'];
+            $etage = $_POST['etage'];
+            $column = $_POST['column'];
+
+            $query = "UPDATE files set etage = '$etage', colu_mn = '$column' where id_file = $idFile";
+            $result = $this->model_obj->all_query($query, 'update');
+
+            if($result !== 0) {
+                $_SESSION['alert']  = 'success';
+                $_SESSION['title']  = 'Bien fait !';
+                $_SESSION['icon']  = "<i class='fa-solid fa-check me-2'></i>";
+                $_SESSION['error_msg'] = "Le lieu de fichier a été mis à jour avec succès.";
+                include_once "view/header.php";
+                include_once "view/update.php";
+                include_once "view/footer.php";
+
+                
+            } else {
+                $_SESSION['alert']  = 'danger';
+                $_SESSION['title']  = 'erreur !';
+                $_SESSION['icon']  = "<i class='fa-solid fa-check me-2'></i>";
+                $_SESSION['error_msg'] = "quelque chose ne va pas, veuillez réessayer";
+                include_once "view/header.php";
+                include_once "view/main.php";
+                include_once "view/footer.php";
+
+
+            }
+
         } else {
             include_once "view/header.php";
             include_once "view/login.php";

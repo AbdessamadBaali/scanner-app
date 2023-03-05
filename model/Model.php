@@ -28,12 +28,6 @@ class Model_app extends DataBase {
         }       
     } 
     
-   
-    public function includeMain() {
-        include_once "view/header.php";
-        include_once "view/main.php";
-        include_once "view/footer.php";
-    } 
     public function includeLogin(){
         include_once "view/login.php";
         include_once 'view/footer.php';

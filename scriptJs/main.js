@@ -12,10 +12,13 @@ const startScanning = () => {
   btnStart.style.display = 'none';
 
   scanner.render((result) => {
+    let list = result.split(";")
+    let id = list[0].split(":");
+    id = id[1];
     document.getElementById("result").innerHTML = `
     <h2>QR Code Scanned:</h2>
     <p>${result}</p> 
-    <button id='update' onclick='showForm()'>update</button> `;
+    <a class='button' id='update' href='index.php?update_file&id=${id}'>update</a> `;
   }
   ,(error) => {
     console.log(`QR Code Error: ${error}`);
@@ -26,48 +29,6 @@ const startScanning = () => {
 const btnStart = document.querySelector('#start');
 btnStart.addEventListener("click", startScanning);
 
-
-
-// update action
-
-
-function showForm() {
-  // Create the form HTML
-  var formHtml = '<form class="row g-3" action="index.php" method="post">'+
-        '<h2>Update QR Code</h2>'+
-        '<div class="col-md-6">' +
-        '<label for="name" class="form-label">Nom de Fichier:</label>' +
-        '<input type="text" class="form-control" id="name" name="filename" disabled> </div>' +
-        '<div class="col-md-6">' +
-        ' <label for="id" class="form-label">ID fichier:</label>' +
-        ' <input type="text" class="form-control" value="0" id="id" name="idFile" disabled></div>' +
-        '<div class="col-md-6">' +
-        ' <label for="etage" class="form-label">Etage:</label>' +
-        ' <input type="number" class="form-control" id="etage" name="etage"> </div>' +
-        '<div class="col-md-6">' +
-        '  <label for="column" class="form-label">Column:</label>' +
-        '   <input type="number" class="form-control" id="column" name="column"></div>' +
-        '<div class="col-md-6">' +
-        ' <label for="typeF" class="form-label">Type Fichier:</label>' +
-        ' <input type="text" class="form-control" id="typeF" name="typeF" disabled></div>' +
-        '<div class="col-md-6">' +
-        ' <label for="groupe" class="form-label">Groupe:</label>' +
-        ' <input type="text" class="form-control" id="groupe" name="groupe" disabled></div>' +
-        '<div class="col-md-6">' +
-        ' <label for="stagiaire" class="form-label">Stagiaire:</label>' +
-        ' <input type="text" class="form-control" id="stagiaire" name="stagiaire" disabled></div>' +
-        '<div class="col-md-6">' +
-        ' <label for="saison" class="form-label">Saison:</label>' +
-        ' <input type="text" class="form-control" id="saison" name="saison" disabled></div>' +
-        '<div class="col-12"><button type="submit" onclick="update_action()">Update</button></div>' +
-        '</form>';
-
-  // Update the content of the div with the form HTML
-  // document.getElementById("myDiv").innerHTML = formHtml;
-  document.getElementById("myDiv").innerHTML = formHtml
-  update_action() 
-
-}
 
 function update_action() {
   // Get the input values
